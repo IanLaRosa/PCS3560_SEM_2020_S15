@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 .txt
 *.txt
+!ner_dataset_final_v3.txt
