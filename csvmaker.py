@@ -38,13 +38,14 @@ for text_file in raw_text_files :
         word_list.extend(list(text_treatment(file.read()).split()))
 
 word_list = list(filter(None, word_list))
+word_list = [v for i, v in enumerate(word_list) if i == 0 or (v != word_list[i-1] or v != '.')]
 
 for word in word_list :
     sentence_count_list.append(sentence_counter)
     if word == '.' :
         sentence_counter += 1
 
-text_file = open(os.getcwd() + '\\ner_dataset.txt',"w", encoding="utf-8")
+text_file = open(os.getcwd() + '\\ner_dataset3.txt',"w", encoding="utf-8")
 for i in range(len(word_list)) :
     text_file.write(str(sentence_count_list[i])+';'+str(word_list[i])+';0'+'\n')
 text_file.flush()
